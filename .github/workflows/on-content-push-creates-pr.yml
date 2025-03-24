@@ -1,0 +1,31 @@
+name: Create PR on `content/main` Push
+
+on:
+  push:
+    branches:
+      - 'content/main'
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        ref: content/main
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: 'Automated PR: Content/Main to Main'
+        body: 'This PR was automatically generated from content/main to main'
+        base: main
+        branch: content/main
+        commit-message: 'Auto-commit PR changes from content/main'
+        delete-branch: false
+        labels: automated-pr
