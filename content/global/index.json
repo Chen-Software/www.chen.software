@@ -3,6 +3,10 @@
     "name": "Chen Software",
     "nav": [
       {
+        "href": "/projects",
+        "label": "Projects"
+      },
+      {
         "href": "/",
         "label": "Home"
       },
