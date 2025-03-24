@@ -3,6 +3,10 @@
     "name": "App Name",
     "nav": [
       {
+        "href": "/projects",
+        "label": "Products"
+      },
+      {
         "href": "/",
         "label": "Home"
       },
