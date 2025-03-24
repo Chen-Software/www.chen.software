@@ -33,6 +33,6 @@ jobs:
           This PR was auto-generated to merge from `content/main` to `dev/main`.
 
           ---
-          - Issue: https://git.chen.so/tina-next-ts/i/22f90530191d39508375402d7cf5359e4a96bb6a
+          - Issue: https://git.chen.so/www.chen.software/i/977e59f2825d3c92dc5f26339c35f06272d42c9e
         commit-message: |
           Auto-commit PR changes from `content/main` to `dev/main`.
