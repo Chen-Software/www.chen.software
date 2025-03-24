@@ -1,19 +1,23 @@
 {
-	"header": {
-		"name": "App Name",
-		"nav": [
-			{
-				"href": "/",
-				"label": "Home"
-			},
-			{
-				"href": "/posts",
-				"label": "Blog"
-			},
-			{
-				"href": "/about",
-				"label": "About"
-			}
-		]
-	}
+  "header": {
+    "name": "Chen.Software",
+    "nav": [
+      {
+        "href": "/",
+        "label": "Home"
+      },
+      {
+        "href": "/projects",
+        "label": "Projects"
+      },
+      {
+        "href": "/posts",
+        "label": "Blog"
+      },
+      {
+        "href": "/about",
+        "label": "About"
+      }
+    ]
+  }
 }

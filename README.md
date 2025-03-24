@@ -1,8 +1,8 @@
-# TinaCMS Next.js TypeScript Starter
+# Chen.Software Website
 
 ## Introduction
 
-This project utilizes [TinaCMS](https://tina.io/), a git-backed, React-based headless CMS that enables seamless content management. This system allows both technical and non-technical users to maintain website content through an intuitive interface.
+Chen Software utilizes [TinaCMS](https://tina.io/), a git-backed, React-based headless CMS that enables seamless content management. This system allows both technical and non-technical users to maintain website content through an intuitive interface.
 
 ## Local Development
 
@@ -15,13 +15,13 @@ This repository is available on both Radicle and GitHub:
 Clone using [the Radicle CLI](https://github.com/radicle-dev/heartwood):
 
 ```bash
-rad clone rad:z3nSm4EXspD9WXm6H2Zj7rLqcbn4h
+rad clone rad:z3aTK96HTKHRtbiNmHw9EJKMRsGeJ
 ```
 
 Or clone from the public Radicle seed node using standard `git`:
 
 ```bash
-git clone https://seed.radicle.garden/z3nSm4EXspD9WXm6H2Zj7rLqcbn4h.git tina-next-ts
+git clone https://seed.radicle.garden/z3aTK96HTKHRtbiNmHw9EJKMRsGeJ.git www.chen.software
 ```
 
 #### GitHub (Alternative)
@@ -29,7 +29,7 @@ git clone https://seed.radicle.garden/z3nSm4EXspD9WXm6H2Zj7rLqcbn4h.git tina-nex
 If using GitHub, clone from the `dev/main` branch to avoid propagating GitHub-specific references to Radicle:
 
 ```bash
-git clone -b dev/main https://github.com/Chen-Software/tina-next-ts.git
+git clone -b dev/main https://github.com/Chen-Software/www.chen.software.git
 ```
 
 **Note**: The Radicle version is considered the canonical source of truth.
@@ -79,13 +79,13 @@ pnpm build
 Access the CMS dashboard at:
 
 ```txt
-https://localhost:3000/admin
+https://chen.software/admin
 ```
 
 For direct page editing:
 
 ```txt
-https://localhost:3000/admin#/collections/edit/page/{page-name}
+https://chen.software/admin/#/collections/edit/page/{page-name}
 ```
 
 Replace `{page-name}` with your target page (e.g., `about`)
@@ -109,7 +109,7 @@ Replace `{page-name}` with your target page (e.g., `about`)
 #### 1. Create PR from `content/main` to `main`
 
    ```txt
-   https://github.com/Chen-Software/tina-next-ts/compare/main...content/main
+   https://github.com/Chen-Software/www.chen.software/compare/main...content/main
    ```
 
 #### 2. Review changes in GitHub interface
