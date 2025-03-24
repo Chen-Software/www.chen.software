@@ -1,19 +1,23 @@
 {
-	"header": {
-		"name": "App Name",
-		"nav": [
-			{
-				"href": "/",
-				"label": "Home"
-			},
-			{
-				"href": "/posts",
-				"label": "Blog"
-			},
-			{
-				"href": "/about",
-				"label": "About"
-			}
-		]
-	}
+  "header": {
+    "name": "App Name",
+    "nav": [
+      {
+        "href": "/projects",
+        "label": "Projects"
+      },
+      {
+        "href": "/",
+        "label": "Home"
+      },
+      {
+        "href": "/posts",
+        "label": "Blog"
+      },
+      {
+        "href": "/about",
+        "label": "About"
+      }
+    ]
+  }
 }
