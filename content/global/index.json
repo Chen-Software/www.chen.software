@@ -7,10 +7,6 @@
         "label": "Home"
       },
       {
-        "href": "/projects",
-        "label": "Products"
-      },
-      {
         "href": "/posts",
         "label": "Blog"
       },
