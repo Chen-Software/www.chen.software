@@ -1,0 +1,23 @@
+name: Auto Create PR from content/main to main
+
+on:
+  push:
+    branches:
+      - content/main
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Pull Request
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.pulls.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `Automated PR: Merge content/main into main`,
+            body: `This is an automated pull request created when changes were pushed to content/main.`,
+            head: 'content/main',
+            base: 'main'
+          })
