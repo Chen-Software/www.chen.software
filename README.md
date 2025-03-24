@@ -1,94 +1,135 @@
-# Chen Software CMS
+# Chen.Software Website
 
 ## Introduction
 
-Chen Software utilizes [TinaCMS](https://tina.io/), a powerful, git-backed, React-based headless CMS. This system allows you to easily manage and update content on our website without requiring technical expertise. This guide will walk you through using the CMS effectively.
+Chen Software utilizes [TinaCMS](https://tina.io/), a git-backed, React-based headless CMS that enables seamless content management. This system allows both technical and non-technical users to maintain website content through an intuitive interface.
 
 ## Local Development
 
-Install the project's dependencies:
+### Cloning the Repository
+
+This repository is available on both Radicle and GitHub:
+
+#### Radicle (Recommended)
+
+Clone using [the Radicle CLI](https://github.com/radicle-dev/heartwood):
+
+```bash
+rad clone rad:z3aTK96HTKHRtbiNmHw9EJKMRsGeJ
+```
+
+Or clone from the public Radicle seed node using standard `git`:
+
+```bash
+git clone https://seed.radicle.garden/z3aTK96HTKHRtbiNmHw9EJKMRsGeJ.git www.chen.software
+```
+
+#### GitHub (Alternative)
+
+If using GitHub, clone from the `dev/main` branch to avoid propagating GitHub-specific references to Radicle:
+
+```bash
+git clone -b dev/main https://github.com/Chen-Software/www.chen.software.git
+```
+
+**Note**: The Radicle version is considered the canonical source of truth.
+
+### Setup & Running
+
+#### 1. Install dependencies
 
 ```bash
 pnpm install
 ```
 
-Run the project locally:
+#### 2. Start development server
 
 ```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### 3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-### Building the Project Locally (Using the hosted content API)
+### Production Build (Using TinaCMS Content API)
 
-Replace the `.env.example`, with `.env`
+#### 1. Create `.env` file from template
 
-```env
-NEXT_PUBLIC_TINA_CLIENT_ID=<get this from the project you create at app.tina.io>
-TINA_TOKEN=<get this from the project you create at app.tina.io>
-NEXT_PUBLIC_TINA_BRANCH=<Specify the branch with Tina configured>
+```bash
+cp .env.example .env
 ```
 
-Build the project:
+#### 2. Configure environment variables
+
+```env
+NEXT_PUBLIC_TINA_CLIENT_ID=<From Tina.io Dashboard>
+TINA_TOKEN=<From Tina.io Dashboard> 
+NEXT_PUBLIC_TINA_BRANCH=<Branch with Tina configuration>
+```
+
+#### 3. Build the project
 
 ```bash
 pnpm build
 ```
 
-## Accessing the Admin Interface
+## Content Management
 
-To begin editing content on the Chen Software website, visit the admin interface at:
+### Admin Interface Access
+
+Access the CMS dashboard at:
 
 ```txt
 https://chen.software/admin
 ```
 
-For direct access to specific pages, use the following format:
+For direct page editing:
 
 ```txt
 https://chen.software/admin/#/collections/edit/page/{page-name}
 ```
 
-Replace `{page-name}` with the actual page you wish to edit (e.g., "about" for the About page).
+Replace `{page-name}` with your target page (e.g., `about`)
 
-## Editing Content
+### Editing Workflow
 
-1. **Login**: Access the admin interface using your credentials.
-2. **Navigate**: Use the interface to browse through different content sections.
-3. **Edit**: Make your desired changes to text, images, or other elements.
-4. **Save**: Your changes will be saved automatically as you work.
+1. **Authentication**: Login with your credentials
+2. **Navigation**: Use sidebar to locate content sections
+3. **Modification**: Edit content using visual/WYSIWYG controls
+4. **Versioning**: Changes auto-save to `content/main` branch
 
-## Publishing Changes
+## Publishing Process
 
-Chen Software's CMS uses a dual-branch system for content management:
+### Branch Strategy
 
-- **content/main**: This branch contains only content changes made through the CMS
-- **main**: This branch includes both content changes and development changes
+- `content/main`: Contains CMS-generated content changes
+- `main`: Production branch combining code and content
 
-### Publishing Process
+### Deployment Steps
 
-1. After making your edits in the admin interface, they will take effect immediately in the `content/main` branch.
-2. To make these changes visible to visitors, you need to merge `content/main` into the `main` branch.
-3. Visit the following URL to create a pull request:
+#### 1. Create PR from `content/main` to `main`
 
    ```txt
-   https://github.com/Chen-Software/www.chen.software/compare/Chen-Software:main...content/main
+   https://github.com/Chen-Software/www.chen.software/compare/main...content/main
    ```
 
-4. Follow the GitHub interface to create and submit the pull request.
-5. Once the pull request is merged, your changes will be live on the main website.
+#### 2. Review changes in GitHub interface
+
+#### 3. Merge PR to publish updates
 
 ## Branch Management
 
-- All content edits made through the CMS are automatically committed to the `content/main` branch
-- The `main` branch contains the full codebase including both content and development changes
-- Regular merges from `content/main` to `main` ensure content updates are published promptly
+- 🔄 **Automatic Commits**: CMS edits directly push to `content/main`
+- 🛡️ **Protected Branches**: 
+  - `main`: Requires PR review
+  - `content/main`: CMS-write protected
+- ⚡ **Sync Frequency**: Merge `content/main` → `main` regularly
 
 ## Troubleshooting
 
-- **Edits not appearing**: Ensure you've merged `content/main` into `main` after making changes
-- **Login issues**: Contact your system administrator if you encounter authentication problems
-- **Content formatting**: If formatting appears incorrect, check your markdown syntax or contact support
+| Issue                  | Solution                                  |
+|------------------------|-------------------------------------------|
+| Edits not visible      | Verify PR merge from `content/main`       |
+| Authentication failure | Contact admin for credential refresh      |
+| Formatting issues      | Validate markdown syntax in CMS interface |
 
-For advanced usage or additional features, refer to the [TinaCMS documentation](https://tina.io/docs/).
+For advanced configurations, consult the [TinaCMS documentation](https://tina.io/docs/).
