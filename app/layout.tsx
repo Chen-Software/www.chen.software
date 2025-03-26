@@ -1,4 +1,5 @@
 import type React from "react";
+import { createElement as h } from "react";
 import Link from "./components/Link";
 import "./styles/globals.css";
 import global from "../content/global/index.json";
@@ -9,49 +10,40 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	return (
-		<html lang="en">
-			<Box
-				as="body"
-				margin="3rem"
-				color={{
-					base: "token(colors.neutral.950)",
-					_osDark: "white",
-				}}
-				backgroundColor={{
-					base: "white",
-					_osDark: "token(colors.neutral.950)",
-				}}
-			>
+	return h(
+		"html",
+		{ lang: "en" },
+		<Box
+			as="body"
+			margin="3rem"
+			color={{ base: "token(colors.neutral.950)", _osDark: "white" }}
+			backgroundColor={{
+				base: "white",
+				_osDark: "token(colors.neutral.950)",
+			}}
+		>
+			<Box as="header">
+				<span>{global.header.name}</span>
 				<Box
-					as="header"
+					as="span"
+					float="right"
 					css={{
 						"& > a": {
 							fontSize: "lg",
 							textDecoration: "none",
 							marginX: 4,
-
-							"&:first-of-type": {
-								marginLeft: 0,
-							},
-
-							"&:last-of-type": {
-								marginRight: 0,
-							},
+							"&:first-of-type": { marginLeft: 0 },
+							"&:last-of-type": { marginRight: 0 },
 						},
 					}}
 				>
-					{global.header.nav.map((link, i) => (
-						<>
-							<Link key={link.href} href={link.href}>
-								{link.label}
-							</Link>
-							{i === global.header.nav.length - 1 ? "" : " | "}
-						</>
-					))}
+					{global.header.nav.map(({ href, label }, i) => [
+						h(Link, { key: href, href }, label),
+						i === global.header.nav.length - 1 ? "" : " | ",
+					])}
 				</Box>
-				<main>{children}</main>
 			</Box>
-		</html>
+			<main>{children}</main>
+		</Box>,
 	);
 }
