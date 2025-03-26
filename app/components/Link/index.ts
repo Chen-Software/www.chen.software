@@ -1,8 +1,14 @@
-import NextLink from "next/link";
+import NextLink, { LinkProps } from "next/link";
 import React from "react";
-import { Box } from "../../../styled-system/jsx";
+import { Box, BoxProps } from "../../../styled-system/jsx";
 
-export const Link = ({ children, ...props }) => {
+export const Link = ({
+	children,
+	...props
+}: LinkProps &
+	BoxProps & {
+		children?: React.ReactNode;
+	}) => {
 	return React.createElement(Box, { as: NextLink, ...props }, children);
 };
 
