@@ -3,7 +3,7 @@ import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Box, Flex } from "../../../styled-system/jsx";
 import type {
-	PageConnectionQuery,
+	PostConnectionQuery,
 	PostQuery,
 } from "../../../tina/__generated__/types";
 import PostList from "../post-list";
@@ -14,7 +14,7 @@ interface ClientPageProps {
 		relativePath: string;
 	};
 	data: PostQuery;
-	postListData: PageConnectionQuery;
+	postListData: PostConnectionQuery;
 }
 
 export default function Post(props: ClientPageProps) {
