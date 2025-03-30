@@ -3,6 +3,7 @@ import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Box } from "../../styled-system/jsx";
 
+import { Code } from "app/components/Code";
 import { H1, H2, H3, H4, H5, H6 } from "app/components/Heading";
 import { Paragraph } from "app/components/Text";
 import type { PageQuery } from "../../tina/__generated__/types";
@@ -35,6 +36,7 @@ export default function ClientPage(props: ClientPageProps) {
 					h5: H5,
 					h6: H6,
 					p: Paragraph,
+					code: Code,
 				}}
 				content={content}
 			/>
