@@ -1,4 +1,5 @@
 "use client";
+import { Code } from "app/components/Code";
 import { H1, H2, H3, H4, H5, H6 } from "app/components/Heading";
 import { Paragraph } from "app/components/Text";
 import { tinaField, useTina } from "tinacms/dist/react";
@@ -46,6 +47,7 @@ export default function Post(props: ClientPageProps) {
 							h5: H5,
 							h6: H6,
 							p: Paragraph,
+							code: Code,
 						}}
 						content={content}
 					/>
