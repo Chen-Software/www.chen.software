@@ -1,4 +1,5 @@
 "use client";
+import { H1, H2, H3, H4, H5, H6 } from "app/components/Heading";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Box, Flex } from "../../../styled-system/jsx";
@@ -31,11 +32,21 @@ export default function Post(props: ClientPageProps) {
 				<PostList data={props.postListData} sidebarMode={true} />
 			</Box>
 			<Box>
-				<h1 data-tina-field={tinaField(data.post, "title")}>
+				<H1 data-tina-field={tinaField(data.post, "title")}>
 					{data.post.title}
-				</h1>
+				</H1>
 				<Box data-tina-field={tinaField(data.post, "body")}>
-					<TinaMarkdown content={content} />
+					<TinaMarkdown
+						components={{
+							h1: H1,
+							h2: H2,
+							h3: H3,
+							h4: H4,
+							h5: H5,
+							h6: H6,
+						}}
+						content={content}
+					/>
 				</Box>
 			</Box>
 		</Flex>
